@@ -1,0 +1,27 @@
+#Generate a New SSH Key
+
+ssh-keygen -t rsa -b 4096 -C "k4kranti@gmail.com" -f ~/.ssh/id_rsa_k4kranti
+
+#ensure that the SSH agent is running and add ssh key 
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_k4kranti
+
+# Add SSH keys to Git account
+
+#copy key to clipboard and add in your git account --> settings -> SSH keys
+
+cat ~/.ssh/id_rsa_k4kranti.pub
+
+
+# Now config your git config
+
+#Create git config file ~/.ssh/config 
+
+ touch config
+
+# Personal Kranti GitHub account
+Host github.com-k4kranti
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_k4kranti	
