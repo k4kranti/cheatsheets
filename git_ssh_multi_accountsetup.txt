@@ -25,3 +25,14 @@ Host github.com-k4kranti
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa_k4kranti	
+
+# test ssh key
+ git clone git@github.com:k4kranti/cheatsheets.git
+
+ # remote connection 
+ git remote -v
+
+ # set remote url 
+ git remote set-url origin git@github.com:k4kranti/cheatsheets.git
+
+ git push
