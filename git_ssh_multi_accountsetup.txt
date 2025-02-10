@@ -1,45 +1,42 @@
-#Generate a New SSH Key
+# Generate a New SSH Key 
+ ssh-keygen -t rsa -b 4096 -C "k4kranti@gmail.com" -f ~/.ssh/id_rsa_kranti
 
-ssh-keygen -t rsa -b 4096 -C "k4kranti@gmail.com" -f ~/.ssh/id_rsa_kranti
+# Ensure that the SSH agent is running 
+ eval "$(ssh-agent -s)"
 
-#ensure that the SSH agent is running and add ssh key 
+# Add ssh key 
+ ssh-add ~/.ssh/id_rsa_kranti
 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_kranti
+# Copy key to clipboard
+ cat ~/.ssh/id_rsa_kranti.pub | pbcopy
 
-# Add SSH keys to Git account
+# Add SSH keys to Git account git account --> settings -> SSH keys
+# https://github.com/settings/keys
 
-#copy key to clipboard and add in your git account --> settings -> SSH keys
-
-cat ~/.ssh/id_rsa_kranti.pub | pbcopy
-#https://github.com/settings/keys
-
-# Now config your git config
-
-#Create git config file ~/.ssh/config 
+# Create git config file ~/.ssh/config and copy below
 
  touch config
 
 # Personal Kranti GitHub account
-Host github.com-kranti
+ Host github.com-kranti
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa_kranti	
 
-# test clone by ssh key
+# Test clone by ssh key
  git clone git@github.com:k4kranti/cheatsheets.git
 
- # check remote connection 
+# Check remote connection 
  git remote -v
 
  # set remote url of repo
  git remote set-url origin git@github.com:k4kranti/cheatsheets.git
 
- # git command to stage code
+ # Stage code
  git add .
 
- #git command to checkin
+ # Commit code
  git commint -m "meesgae"
 
- #git command to push to github repo
+ # Push to github repo
  git push 
