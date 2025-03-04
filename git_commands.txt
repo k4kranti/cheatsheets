@@ -1,0 +1,38 @@
+# Debian based install 
+sudo apt install git-all
+
+#Mac OS
+brew install git 
+
+#setup credentials only once in global - when first time enter it will store and won't ask again
+git config --global credential.helper store
+
+# New project --> create new repo in github (Remote)
+
+# create local repository
+git init 
+
+#add to staging area
+git add .
+
+
+# status 
+git status
+
+# commit to local repository
+git commit -m "Initial Commit"
+
+# Best Commit message options 
+git commit -m "fix null pointer exception to fix bug"
+git commit -m "fix(login): reslove race condition in login flow"
+
+#log will show you latest file points to with origin 
+
+# git remote origin add
+git remote add origin git@github.com:k4kranti/cheatsheets.git
+
+# git push -u : set upstream to track (local to track remote) - do only once 
+git push -u origin main 
+
+# git ssh keys Test
+ssh -T git@github.com

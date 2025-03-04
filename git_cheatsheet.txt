@@ -1,0 +1,25 @@
+# Git Cheatsheet
+## Cloning a repository
+git clone <repo-url>
+
+## Viewing the status
+git status
+
+## Stage  & Committing changes
+git add .
+git commit -m "Your message here"
+
+## Pushing changes
+git push origin main
+
+## SSH keys Test
+ssh -T git@github.com
+
+## Remote connection 
+ git remote -v
+
+## set Remote url of repo
+ git remote set-url origin git@github.com:k4kranti/cheatsheets.git
+
+
+ 

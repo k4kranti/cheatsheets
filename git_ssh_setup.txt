@@ -1,0 +1,59 @@
+#Git SSH Keys setup in Mac
+
+## Step 1: Generate a New SSH Key
+ssh-keygen -t rsa -b 4096 -C "k4kranti@gmail.com" -f ~/.ssh/id_rsa_kranti
+
+## Step 2: [Optional] Check permissions to .ssh folder, private and public key 
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa_kranti
+chmod 644 ~/.ssh/id_rsa_kranti.pub
+
+## Step 3: Ensure that the SSH agent is running 
+eval "$(ssh-agent -s)"
+
+	### "Agent pid .."
+
+## Step 4: Add private key to SSH agent on mac
+ssh-add ~/.ssh/id_rsa_kranti_mac
+
+	### "Identity added: /Users/.."
+
+## Step 5: copy public key to clipboard 
+cat ~/.ssh/id_rsa_k4kranti.pub | pbcopy
+
+## Step 6: Go to your GitHub account.
+   Go to Settings > SSH and GPG keys > New SSH Key.
+ https://github.com/settings/keys
+
+## Step 7: Check Remote URL of Your Git Repository
+	ssh -T git@github.com
+
+	### "Hi username! You've successfully authenticated, but GitHub does not provide shell access."
+
+## Step 8: Check Remote URL of Your Git Repository
+	git remote -v
+   ### "not a git repository -- now setup local config"
+
+## Step 9: Now config your local git config file at ~/.ssh/
+	touch config
+	open config
+
+## copy below lines- you can add multiple profiles 
+
+## Personal Kranti GitHub account
+Host github.com-k4kranti
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_kranti_mac	
+
+## git ssh keys Test
+ssh -T git@github.com
+
+## Check remote connection 
+ git remote -v
+
+## Set remote url of repo
+ git remote set-url origin git@github.com:k4kranti/cheatsheets.git
+
+## Test clone by ssh key
+ git clone git@github.com:k4kranti/cheatsheets.git
