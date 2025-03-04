@@ -1,4 +1,5 @@
 # Git Cheatsheet
+
 ## Cloning a repository
 git clone <repo-url>
 
@@ -12,6 +13,30 @@ git commit -m "Your message here"
 ## Pushing changes
 git push origin main
 
+## Pulling changes
+git pull origin <branch>
+
+## Creating a new branch
+git checkout -b <new-branch-name>
+
+## Switching branches
+git checkout <branch-name>
+
+## Merging branches
+git merge <branch-name>
+
+## Viewing commit history
+git log
+
+## Showing differences
+git diff
+
+## Resetting changes
+git reset --hard
+
+## Stashing changes
+git stash
+
 ## SSH keys Test
 ssh -T git@github.com
 
@@ -20,6 +45,9 @@ ssh -T git@github.com
 
 ## set Remote url of repo
  git remote set-url origin git@github.com:k4kranti/cheatsheets.git
+
+## create local repository
+git init 
 
 
  

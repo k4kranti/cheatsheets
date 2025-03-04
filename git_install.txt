@@ -15,7 +15,6 @@ git init
 #add to staging area
 git add .
 
-
 # status 
 git status
 
